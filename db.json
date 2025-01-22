@@ -1,0 +1,34 @@
+{
+  "usuarios": [
+    {
+      "id": "1c61",
+      "nome": "",
+      "email": "",
+      "senha": ""
+    },
+    {
+      "id": "45f4",
+      "nome": "Israel Monteiro Batista",
+      "email": "Contatoisraelmonteiro@gmail.com",
+      "senha": "1234"
+    },
+    {
+      "id": "687a",
+      "nome": "Israel Monteiro Batista",
+      "email": "Contatoisraelmonteiro@gmail.com",
+      "senha": "1234"
+    },
+    {
+      "id": "fcc8",
+      "nome": "Israel Monteiro Batista",
+      "email": "Contatoisraelmonteiro@gmail.com",
+      "senha": "1234"
+    },
+    {
+      "id": "2301",
+      "nome": "Israel Monteiro Batista",
+      "email": "Contatoisraelmonteiro@gmail.com",
+      "senha": "1234"
+    }
+  ]
+}
