@@ -1,28 +1,53 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { UsuarioService } from '../../components/services/usuario.service';
 import { RegisterRequestDTO } from '../../components/models/registre.response.dto';
+import { CommonModule } from '@angular/common';
+import { PasswordValidator } from '../../validators/password.validators';
 
 
 @Component({
   selector: 'app-register',
-  imports: [ RouterLink,FormsModule,ReactiveFormsModule],
+  imports: [
+    RouterLink,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule
+  ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
 
-  //instanciando a classe HttpClient (injeção de dependência)
-  constructor(private usuarioService: UsuarioService) { }
+
+  //atributos
+  form: FormGroup; //formulário
 
 
-  //construindo um formulário
-  form = new FormGroup({
-    nome : new FormControl(''), //campo 'nome'
-    email : new FormControl(''), //campo 'email'
-    senha : new FormControl('') //campo 'senha'
-  });
+  //instanciando a classe de serviço de usuário
+  constructor(
+    private usuarioService: UsuarioService, //injetando o serviço de usuário
+    private fb: FormBuilder //injetando o form builder
+  ) {
+    this.form = this.fb.group({ //criando o formulário
+      nome: new FormControl('', [
+        Validators.required, Validators.minLength(8)
+      ]), //campo nome
+      email: new FormControl('', [
+        Validators.required, Validators.email
+      ]), //campo email
+      senha: new FormControl('', [
+        Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+      ]), //campo senha
+      senhaConfirmacao: new FormControl('', [
+        Validators.required
+      ])
+    }, {
+      //validação customizada
+      validators: PasswordValidator.mathPasswordValidator('senha', 'senhaConfirmacao')
+    });
+  }
 
 
   //capturar do evento submit
@@ -53,5 +78,7 @@ export class RegisterComponent {
 
 
 }
+
+
 
 
