@@ -4,10 +4,13 @@
           <h3 class="card-title text-center mb-4">Projeto Agenda</h3>
           <h5 class="text-center">Criação de usuário</h5>
           <hr />
-
+   <!-- exibir a mensagem -->
+   <div *ngIf="msg" class="alert alert-primary alert-dismissible fade show" role="alert">
+    <strong>{{msg}}</strong>
+    <button (click)="msg = ''" type="button" class="btn-close" aria-label="Close"></button>
+</div>
 
           <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
 
               <div class="mb-3">
                   <label for="nome" class="form-label">Entre com o seu nome:</label>
