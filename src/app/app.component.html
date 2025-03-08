@@ -1,0 +1,18 @@
+<!-- 
+    local para exibir o componente de acordo com a rota 
+    que esta sendo acessada pelo navegador
+-->
+<router-outlet/>
+
+<!--
+    Código para exibir o componente
+    do NGX-SPINNER
+-->
+<ngx-spinner 
+    bdColor = "rgba(0, 0, 0, 0.8)" 
+    size = "medium" 
+    color = "#fff" 
+    type = "timer" 
+    [fullScreen] = "true">
+    <p style="color: white" > Processando, por favor aguarde... </p>
+</ngx-spinner>

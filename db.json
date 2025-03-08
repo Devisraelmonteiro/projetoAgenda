@@ -1,0 +1,19 @@
+{
+  "usuarios": [
+    {
+      "id": "9d6d",
+      "nome": "Sergio da Silva Mendes",
+      "email": "sergio.coti@gmail.com",
+      "senha": "@Admin123"
+    }
+  ],
+  "tarefas": [
+    {
+      "id": "ecb9",
+      "nome": "teste ",
+      "data": "2025-03-20",
+      "categoria": "Trabalho",
+      "prioridade": "Alta"
+    }
+  ]
+}
